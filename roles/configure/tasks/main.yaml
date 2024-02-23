@@ -6,6 +6,12 @@
     - pull.rebase true
     - init.defaultbranch main
 
+- name: Create zshrc
+  copy:
+    src: files/zshrc
+    dest: ~/.zshrc
+    force: no
+
 - name: Check if Powerlevel10k is configured
   lineinfile:
     state: absent
