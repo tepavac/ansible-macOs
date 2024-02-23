@@ -5,3 +5,19 @@
     - user.email milostepavac@gmail.com
     - pull.rebase true
     - init.defaultbranch main
+
+- name: Check if Powerlevel10k is configured
+  lineinfile:
+    state: absent
+    path: "~/.zshrc"
+    regexp: "^source /Users/milostepavac/Documents/Software/Git/powerlevel10k/powerlevel10k.zsh-theme"
+  check_mode: true
+  changed_when: false
+  register: powerlevel
+
+- name: Configure Powerlevel10k if it is not configured
+  lineinfile:
+    state: present
+    path: "~/.zshrc"
+    line: "source /Users/milostepavac/Documents/Software/Git/powerlevel10k/powerlevel10k.zsh-theme"
+  when: powerlevel.found == 0
