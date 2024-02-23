@@ -1,0 +1,7 @@
+- name: Set git username and email
+  command: git config --global {{item}}
+  with_items:
+    - --replace-all user.name 'Milos Tepavac'
+    - user.email milostepavac@gmail.com
+    - pull.rebase true
+    - init.defaultbranch main

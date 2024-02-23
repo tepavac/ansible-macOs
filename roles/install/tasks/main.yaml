@@ -1,0 +1,43 @@
+- name: Make sure Homebrew Is Installed
+  stat:
+    path: /opt/homebrew/bin/brew
+  register: homebrew_check
+
+- name: Installing Homebrew
+  shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  when:
+    - not homebrew_check.stat.exists
+
+- name: Creates directories
+  ansible.builtin.file:
+    path: /Users/milostepavac/Documents/Software/Git
+    state: directory
+
+- name: "Install apps"
+  homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+  - awscli
+  - gcc
+  - k9s
+  - kubectl
+  - kubie
+  - kubectx
+  - kube-ps1
+  - helm
+
+- name: "Install GUI apps"
+  community.general.homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - docker
+    - intellij-idea
+    - keepassx
+    - wireshark
+
+- name: "Install powerlevel10k"
+  ansible.builtin.git:
+    repo: git@github.com:romkatv/powerlevel10k.git
+    dest: /Users/milostepavac/Documents/Software/Git/powerlevel10k/

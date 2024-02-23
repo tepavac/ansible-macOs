@@ -1,0 +1,9 @@
+# OS General
+Thumbs.db
+.DS_Store
+
+# Develop tools
+.vscode/
+.idea/
+*.swp
+*.iml

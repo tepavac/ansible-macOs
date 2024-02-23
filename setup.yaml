@@ -1,0 +1,9 @@
+---
+
+- name: "Setup up macos"
+  hosts: localhost
+  connection: local
+  become: false
+  roles:
+    - install
+    - configure
