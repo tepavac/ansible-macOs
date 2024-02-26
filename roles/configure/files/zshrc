@@ -39,3 +39,6 @@ alias gpo='git push -u origin $*'
 alias gsa='git stash apply'
 alias gst='git stash'
 alias gpo='git push -u origin $*'
+
+## AWS
+alias awsp='export AWS_PROFILE=$*'
