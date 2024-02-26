@@ -26,6 +26,8 @@
   - kubectx
   - kube-ps1
   - helm
+  - terraform
+  - terragrunt
 
 - name: "Install GUI apps"
   community.general.homebrew_cask:
