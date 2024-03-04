@@ -28,6 +28,7 @@
   - helm
   - terraform
   - terragrunt
+  - mvn
 
 - name: "Install GUI apps"
   community.general.homebrew_cask:
