@@ -42,3 +42,4 @@ alias gpo='git push -u origin $*'
 
 ## AWS
 alias awsp='export AWS_PROFILE=$*'
+alias awslp='aws configure list-profiles'
