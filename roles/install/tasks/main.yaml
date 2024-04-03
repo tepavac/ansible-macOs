@@ -29,6 +29,7 @@
   - terraform
   - terragrunt
   - mvn
+  - argocd
 
 - name: "Install GUI apps"
   community.general.homebrew_cask:
